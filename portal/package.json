@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 7200 --base-href=/portal --proxyConfig proxy.conf.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-extensions/elements": "^9.2.0",
     "@angular/animations": "~9.1.6",
     "@angular/common": "~9.1.6",
     "@angular/compiler": "~9.1.6",
@@ -19,6 +20,7 @@
     "@angular/platform-browser": "~9.1.6",
     "@angular/platform-browser-dynamic": "~9.1.6",
     "@angular/router": "~9.1.6",
+    "@webcomponents/custom-elements": "^1.4.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
