@@ -26,27 +26,19 @@ import { Router, NavigationStart, NavigationEnd } from '@angular/router';
     <!-- WEB COMPONENTS -->
     <ng-template #loadingClientA>Loading Client A ...<br></ng-template>
     <ng-template #errorClientA>Error failed loading Client A<br></ng-template>
-    <client-a
-      *axLazyElement="
-        'http://localhost:7201/main.js?dont-cache';
-        loadingTemplate: loadingClientA;
-        errorTemplate: errorClientA
-      "
-      [data]="data"
-      (message)="handleMessage($event)"
-    ></client-a>
+    <ax-lazy-element *axLazyElementDynamic="'client-a', url: config.clientAJsUrl; module: true; loadingTemplate: loadingClientA;
+        errorTemplate: errorClientA"
+        [data]="data"
+      (message)="handleMessage($event)">
+</ax-lazy-element>
 
     <ng-template #loadingClientB>Loading Client B ...<br></ng-template>
     <ng-template #errorClientB>Error failed loading Client B<br></ng-template>
-    <client-b
-      *axLazyElement="
-        'http://localhost:7202/main.js?dont-cache';
-        loadingTemplate: loadingClientB;
-        errorTemplate: errorClientB
-      "
-      [data]="data"
-      (message)="handleMessage($event)"
-    ></client-b>
+    <ax-lazy-element *axLazyElementDynamic="'client-b', url: config.clientBJsUrl; module: true; loadingTemplate: loadingClientB;
+        errorTemplate: errorClientB"
+        [data]="data"
+      (message)="handleMessage($event)">
+</ax-lazy-element>
   `,
   styles: [],
 })
@@ -54,6 +46,11 @@ export class AppComponent {
   title = "portal";
 
   data = null;
+
+  config = {
+    clientAJsUrl: 'http://localhost:7201/main.js',
+    clientBJsUrl: 'http://localhost:7202/main.js'
+  }
 
   constructor(
     private router: Router, private location: Location) {

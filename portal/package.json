@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 7200 --base-href=/portal --proxyConfig proxy.conf.json",
+    "start": "ng serve --port 7200 --base-href=/portal",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
