@@ -1,4 +1,6 @@
+import { Location } from '@angular/common';
 import { Component } from "@angular/core";
+import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: "app-root",
@@ -11,10 +13,10 @@ import { Component } from "@angular/core";
     <!-- NAVIGATION -->
     <nav>
       <ul>
-        <li><a href="#page1">portal / page1</a></li>
-        <li><a href="#page2">portal / page2</a></li>
-        <li><a href="#client-a">client-a</a></li>
-        <li><a href="#client-b">client-b</a></li>
+        <li><a routerLink="page1">portal / page1</a></li>
+        <li><a routerLink="page2">portal / page2</a></li>
+        <li><a routerLink="client-a">client-a</a></li>
+        <li><a routerLink="client-b">client-b</a></li>
       </ul>
     </nav>
 
@@ -51,9 +53,20 @@ import { Component } from "@angular/core";
 export class AppComponent {
   title = "portal";
 
-  data = { key: "value" };
+  data = null;
+
+  constructor(
+    private router: Router, private location: Location) {
+  }
+
+  ngOnInit() {
+    this.location.onUrlChange(url => {
+      console.log('portal/AppComponent/onUrlChange url=' + url)
+      this.data = { url: url }
+    })
+  }
 
   handleMessage(msg): void {
-    console.debug("shell received message: ", JSON.stringify(msg));
+    console.debug("portal received message: ", JSON.stringify(msg));
   }
 }

@@ -1,3 +1,4 @@
+import { APP_BASE_HREF, PlatformLocation } from '@angular/common';
 import { Page2InClientBComponent } from './../../../client-b/src/client-b/page2-in-client-b.component';
 import { Page1InClientAComponent } from './page1-in-client-a.component';
 import { RouterModule } from '@angular/router';
@@ -24,7 +25,7 @@ import { CoreComponent } from './core.component';
         ]
       },
       { path: '**', component: EmptyComponent }
-    ], { useHash: true, enableTracing: true })
+    ], { useHash: false, enableTracing: false })
   ],
   providers: [],
   schemas: [],

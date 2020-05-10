@@ -21,7 +21,7 @@ import { CoreComponent } from './core.component';
         { path: 'page2', component: Page2InClientBComponent },
       ]},
       { path: '**', component: EmptyComponent }
-    ], { useHash: true })
+    ], { useHash: false, enableTracing: false })
   ],
   providers: [],
   bootstrap: [], 

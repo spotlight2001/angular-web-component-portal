@@ -18,7 +18,7 @@ import { EmptyComponent } from './empty.component';
       { path: 'page1', component: Page1InAppShellComponent },
       { path: 'page2', component: Page2InAppShellComponent },
       { path: '**', component: EmptyComponent }
-    ], { useHash: true }),
+    ], { useHash: false }),
     LazyElementsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
