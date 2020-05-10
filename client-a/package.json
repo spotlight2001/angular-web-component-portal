@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --extra-webpack-config webpack.partial.js --port 7201 --single-bundle",
+    "start": "ng serve --port 7201 --single-bundle --base-href=/portal",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
