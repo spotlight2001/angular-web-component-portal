@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-page1-in-client-a',
+  selector: 'app-page2-in-client-a',
   template: `hi from page2 in client-a<br>`,
   styles: [``]
 })
