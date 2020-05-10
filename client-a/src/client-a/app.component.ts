@@ -16,7 +16,7 @@ export class AppComponent {
   set data(data) {
     const url = data.url.replace('/portal', '') // remove base-href // FIXME inject base-href
     console.log('client-a/AppComponent/setData: navigate to=' + url)
-    this.router.navigateByUrl(url, { skipLocationChange: false });
+    this.router.navigateByUrl(url, { skipLocationChange: true });
   }
 
   constructor(
