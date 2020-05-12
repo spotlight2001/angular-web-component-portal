@@ -63,3 +63,4 @@ http://localhost:7200/portal
 * configure JIT build and run from dist
 * configure AOT prod build and run from dist
 * check polyfills for IE11
+* check JWT from portal to child web component modules and interceptors
