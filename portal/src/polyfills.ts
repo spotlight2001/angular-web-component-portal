@@ -56,8 +56,14 @@
  * Zone JS is required by default for Angular itself.
  */
 import 'zone.js/dist/zone';  // Included with Angular CLI.
+import { Subject } from 'rxjs';
 
 
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+declare global {
+    interface Window {
+      urlChangeEvents: Subject<string>;
+    }
+  }

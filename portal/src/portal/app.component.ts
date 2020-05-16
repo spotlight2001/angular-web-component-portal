@@ -1,8 +1,11 @@
 import { Location } from '@angular/common';
 import { Component } from "@angular/core";
-import { Router, NavigationStart, NavigationEnd } from '@angular/router';
+import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 declare const WEB_COMPONENT_URL_TYPE: string
+
+window.urlChangeEvents = new Subject<string>()
 
 @Component({
   selector: "app-root",
@@ -69,9 +72,11 @@ export class AppComponent {
   ngOnInit() {
     this.webComponentUrlType = WEB_COMPONENT_URL_TYPE || 'relative'
 
+    window.urlChangeEvents = new Subject<string>()
+
     this.location.onUrlChange(url => {
       console.log('portal/AppComponent/onUrlChange url=' + url)
-      this.data = { url: url }
+      window.urlChangeEvents.next(url)
     })
   }
 
