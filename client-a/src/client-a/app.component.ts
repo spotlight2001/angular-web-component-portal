@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ export class AppComponent {
   title = 'client-a';
 
   constructor(
-    private router: Router) {
+    private router: Router, private ngZone: NgZone) {
   }
 
   ngOnInit() {
@@ -20,7 +20,7 @@ export class AppComponent {
     window.urlChangeEvents.subscribe(urlWithBaseHref => {
       const url = urlWithBaseHref.replace('/portal', '') // remove base-href // FIXME inject base-href
       console.log('client-a/AppComponent: navigate to=' + url)
-      this.router.navigateByUrl(url, { skipLocationChange: true })
+      this.ngZone.run(() => this.router.navigateByUrl(url, { skipLocationChange: true }))
     })
     
   }
